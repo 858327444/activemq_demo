@@ -5,14 +5,14 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import javax.jms.*;
 
 /**
- * 消息生产者
+ * 消息消费者
  * Program Name: activemq_demo
  * Created by yanlp on 2019-10-15
  *
  * @author yanlp
  * @version 1.0
  */
-public class JmsProduce {
+public class JmsConsumer {
     /**
      * mq地址,写的是自己本地ip   端口号默认是61616
      */
@@ -32,25 +32,21 @@ public class JmsProduce {
         Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         // 4.创建目的地(具体是队列还是主题topic)
         Queue queue = session.createQueue(QUEUE_NAME);
-        // 5.创建消息的生成者
-        MessageProducer messageProducer = session.createProducer(queue);
-        // 6.通过使用messageProducer生产3条消息发送到MQ的队列里面去
-        for (int i = 1; i <= 3; i++) {
-            // 7.创建消息
-            TextMessage textMessage = session.createTextMessage("msg----" + i);
-            // 8.通过messageProducer发送给mq
-            messageProducer.send(textMessage);
+        // 5.创建消息的消费者
+        MessageConsumer messageConsumer = session.createConsumer(queue);
+        while (true) {
+            TextMessage textMessage = (TextMessage) messageConsumer.receive();
+            if (null != textMessage) {
+                System.out.println("******消费成功 消息为: " + textMessage.getText());
+            } else {
+                break;
+            }
         }
-        // 9.关闭资源  倒着关闭
-        messageProducer.close();
+        // 6.关闭资源 倒着关闭
+        messageConsumer.close();
         session.close();
         connection.close();
 
-        System.out.println("******消息发布到MQ完成");
-
-
-
 
     }
-
 }
