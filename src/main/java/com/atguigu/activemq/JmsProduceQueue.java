@@ -12,7 +12,7 @@ import javax.jms.*;
  * @author yanlp
  * @version 1.0
  */
-public class JmsProduce {
+public class JmsProduceQueue {
     /**
      * mq地址,写的是自己本地ip   端口号默认是61616
      */

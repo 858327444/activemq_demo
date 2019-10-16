@@ -13,7 +13,7 @@ import java.io.IOException;
  * @author yanlp
  * @version 1.0
  */
-public class JmsConsumer {
+public class JmsConsumerQueue {
     /**
      * mq地址,写的是自己本地ip   端口号默认是61616
      */
