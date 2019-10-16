@@ -6,7 +6,7 @@ import javax.jms.*;
 import java.io.IOException;
 
 /**
- * 消息消费者
+ * QUEUE消息消费者
  * Program Name: activemq_demo
  * Created by yanlp on 2019-10-15
  *
