@@ -1,4 +1,4 @@
-package com.atguigu.activemq;
+package com.atguigu.activemq.queue.tx;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 

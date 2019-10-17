@@ -1,4 +1,4 @@
-package com.atguigu.activemq;
+package com.atguigu.activemq.queue.tx;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
@@ -31,7 +31,7 @@ public class JmsConsumerQueueTX {
         Connection connection = activeMQConnectionFactory.createConnection();
         connection.start();
         // 3.创建会话session  两个参数,第一个叫事务,第二个叫签收
-        Session session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+        Session session = connection.createSession(true, Session.CLIENT_ACKNOWLEDGE);
         // 4.创建目的地(具体是队列还是主题topic)
         Queue queue = session.createQueue(QUEUE_NAME);
         // 5.创建消息的消费者
