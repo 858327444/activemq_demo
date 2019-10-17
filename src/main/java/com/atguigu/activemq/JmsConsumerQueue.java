@@ -59,6 +59,7 @@ public class JmsConsumerQueue {
         // 订阅者或接收者,通过MessageConsumer的setMessageListener(MessageListener messageListener)注册一个消息监听器,
         // 当消息到达后,系统会自动调用MessageListener的onMessage(Message message)方法进行消费
         messageConsumer.setMessageListener(new MessageListener() {
+            @Override
             public void onMessage(Message message) {
                 if (message != null && message instanceof TextMessage) {
                     TextMessage textMessage = (TextMessage) message;
