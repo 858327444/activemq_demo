@@ -71,7 +71,7 @@ public class JmsConsumerQueue {
                 }
             }
         });
-        // 保证可以消费到,如果没有下面一行代码,极大可能会消费不到数据,就关闭资源了
+        // 只在使用MessageLisener时使用,保证可以消费到,如果没有下面一行代码,极大可能会消费不到数据,就关闭资源了
         System.in.read();
         // 6.关闭资源 倒着关闭
         messageConsumer.close();
