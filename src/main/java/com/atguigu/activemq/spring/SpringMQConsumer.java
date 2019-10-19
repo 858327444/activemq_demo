@@ -7,7 +7,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 /**
- * Spring和MQ 整合之 队列消费者
+ * Spring和MQ 整合之 消费者
  * Program Name: activemq_demo
  * Created by yanlp on 2019-10-19
  *

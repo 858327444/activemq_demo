@@ -29,12 +29,19 @@
     <bean id="destinationQueue" class="org.apache.activemq.command.ActiveMQQueue">
         <constructor-arg index="0" value="spring-active-queue"></constructor-arg>
     </bean>
+    <!--主题的目的地-->
+    <bean id="destinationTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="spring-active-topic"></constructor-arg>
+    </bean>
 
 
     <!--Spring提供的JMS工具类,它可以进行消息发送,接收等-->
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="jmsFactory"/>
-        <property name="defaultDestination" ref="destinationQueue"/>
+        <!-- 如果默认目的地是队列-->
+<!--        <property name="defaultDestination" ref="destinationQueue"/>-->
+        <!-- 如果默认目的地是主题-->
+        <property name="defaultDestination" ref="destinationTopic"/>
         <property name="messageConverter">
             <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
         </property>

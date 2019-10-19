@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.jms.TextMessage;
 
 /**
- * Spring和mq 整合之 队列生产者
+ * Spring和mq 整合之 生产者
  * Program Name: activemq_demo
  * Created by yanlp on 2019-10-19
  *
